@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Login Successful</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        Login was successful<br/>
+        <div class="welcome">Welcome!</div> #{userBean.username}
+        <h:form>
+            <table class="simpleTable">
+                <tr>
+                    <td><h:commandButton class="button" value="Manage Auctions" action="/protected/manageAuctions"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton class="button" value="Browse" action="/search"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton class="button" value="Messages" action="/protected/inbox"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton class="button" value="Logout" action="#{userBean.logout}"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

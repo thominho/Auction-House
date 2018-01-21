@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Existing Auctions</title>
+         <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable class="elementList" value="#{userBean.currentUser.items}" var="elem">
+                <h:column>
+                    <h:commandLink class="link" value="#{elem.name}" action="#{itemBean.setCurrentItem(elem)}" />
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid class="elementData" rendered="#{itemBean.currentItem!=null}" columns="2">
+                Name:
+                
+                <h:inputText value="#{itemBean.currentItem.name}"/>
+            </h:panelGrid>
+            <h:panelGrid class="elementData" rendered="#{itemBean.currentItem!=null}" columns="1">
+                Categories:
+            </h:panelGrid>
+            <h:dataTable class="elementData" rendered="#{itemBean.currentItem!=null}" value="#{itemBean.currentItem.categories}" var="cat">
+                <h:column>
+                    <h:outputLabel value="#{cat}"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton class="button" value="Remove" action="#{itemBean.removeCategory(cat)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid class="elementData" rendered="#{itemBean.currentItem!=null}" columns="2">
+                <h:inputText value="#{itemBean.category}"/>
+                
+                <h:commandButton class="button" value="Add New" action="#{itemBean.addCategory}"/>
+                
+                Current Bid:
+                
+                <h:outputLabel value="#{itemBean.currentItem.currently}"/>
+                
+                Buy Price:
+                
+                <h:inputText value="#{itemBean.currentItem.buyPrice}"/>
+                
+                Starting Price:
+                
+                <h:inputText value="#{itemBean.currentItem.firstBid}"/>
+                
+                Number Of Bids:
+                
+                <h:outputLabel value="#{itemBean.currentItem.numberOfBids}"/>
+            </h:panelGrid>
+            <h:panelGrid class="elementData" rendered="#{itemBean.currentItem!=null}" columns="1">
+                <h:outputLabel rendered="#{itemBean.currentItem.numberOfBids>0}" value="Bids:"/>
+            </h:panelGrid>
+            <h:dataTable class="elementData" rendered="#{itemBean.currentItem!=null}" value="#{itemBean.currentItem.bids}" var="bid">
+                <h:column>
+                    <h:outputLabel value="#{bid.bidder.username}"/>
+                </h:column>
+                <h:column>
+                    <h:outputLabel value="#{bid.amount}"/>
+                </h:column>
+                <h:column>
+                    <h:outputLabel value="#{bid.time}"/>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid class="elementData" rendered="#{itemBean.currentItem!=null}" columns="2">
+                Location:
+                
+                <h:inputText value="#{itemBean.currentItem.location.name}"/>
+                
+                Location Longitude:
+                
+                <h:inputText value="#{itemBean.currentItem.location.longitude}"/>
+                
+                Location Latitude:
+                
+                <h:inputText value="#{itemBean.currentItem.location.latitude}"/>
+                
+                Country:
+                
+                <h:inputText value="#{itemBean.currentItem.country}"/>
+                
+                Start Time:
+                
+                <h:inputText value="#{itemBean.currentItem.startDate}">
+                    <f:convertDateTime pattern="dd-MM-yyyy HH:mm"/> 
+                </h:inputText>
+                
+                End Time:
+                
+                <h:inputText value="#{itemBean.currentItem.endDate}">
+                    <f:convertDateTime pattern="dd-MM-yyyy HH:mm"/> 
+                </h:inputText>
+                
+                Description:
+                
+                <h:inputTextarea value="#{itemBean.currentItem.description}"/>
+            </h:panelGrid>
+            <h:panelGrid class="elementData" rendered="#{itemBean.currentItem!=null}" columns="1">
+                <h:commandButton class="button" value="update" action="#{itemBean.update}"/>
+            </h:panelGrid>
+            <h:outputLabel class="error" value="#{itemBean.errorMsg}"/>
+            <h:outputLabel class="success" value="#{itemBean.successMsg}"/><br/>
+            <h:commandButton class="button" value="Home" action="#{itemBean.home}"/>
+        </h:form>
+    </h:body>
+</html>

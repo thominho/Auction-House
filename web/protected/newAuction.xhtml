@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create New Auction</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table class="simpleTable">
+                <tr>
+                    <td>Item Name:</td>
+                    <td><h:inputText value="#{itemCreationBean.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Categories(Please put a "," for multiple categories):</td>
+                    <td><h:inputText value="#{itemCreationBean.category}"/></td>
+                </tr>
+                <tr>
+                    <td>Buy Price:</td>
+                    <td><h:inputText value="#{itemCreationBean.buyprice}"/></td>
+                </tr>
+                <tr>
+                    <td>First Bid:</td>
+                    <td><h:inputText value="#{itemCreationBean.firstbid}"/></td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td><h:inputText value="#{itemCreationBean.location}"/></td>
+                    <td>Longitude(Optional):</td>
+                    <td><h:inputText value="#{itemCreationBean.longitude}"/></td>
+                    <td>Latitude(Optional):</td>
+                    <td><h:inputText value="#{itemCreationBean.latitude}"/></td>
+                </tr>
+                <tr>
+                    <td>Start Time(format "DD-MM-YYYY HH:MM"):</td>
+                    <td>
+                        <h:inputText value="#{itemCreationBean.date}"> 
+                            <f:convertDateTime pattern="dd-MM-yyyy HH:mm"/> 
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>End Time(format "DD-MM-YYYY HH:MM"):</td>
+                    <td>
+                        <h:inputText value="#{itemCreationBean.date2}">
+                            <f:convertDateTime pattern="dd-MM-yyyy HH:mm"/> 
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><h:inputText value="#{itemCreationBean.description}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><h:commandButton class="button" action="#{itemCreationBean.registeritem}" value="Register"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><h:outputLabel class="error" value="#{itemCreationBean.errormsg}"/></td>
+                    <td colspan="2" align="center"><h:outputLabel style="color: green; font-weight: bold" value="#{itemCreationBean.successmsg}"/></td>
+                </tr>
+                <tr>
+                    <td><h:commandButton class="button" action="#{itemCreationBean.home}" value="Home"/></td>
+                    <td><h:commandButton class="button" action="#{itemCreationBean.back}" value="Back"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

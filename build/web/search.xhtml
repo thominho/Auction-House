@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Register</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table class="simpleTable">
+                <tr>
+                    <td>Category: </td>
+                    <td><h:inputText value="#{itemBean.category}"/></td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td><h:inputText value="#{itemBean.description}"/></td>
+                </tr>
+                <tr>
+                    <td>Price: </td>
+                    <td><h:inputText value="#{itemBean.price}"/></td>
+                </tr>
+                <tr>
+                    <td>Location: </td>
+                    <td><h:inputText value="#{itemBean.location}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><h:commandButton action="#{itemBean.search_item}" value="Search"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><h:outputLabel class="error" value="#{itemBean.errorMsg}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><h:commandButton class="button" value="Home" action="#{itemBean.home}"/></td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>

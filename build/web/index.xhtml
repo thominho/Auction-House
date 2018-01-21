@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Welcome Page</title>
+        <h:outputStylesheet library="css" name="main.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="header"><h1>Welcome to our website</h1></div>
+            <p>
+                To continue, please<br/>
+                <h:commandButton class="button" action="/login" value="Login"/> or 
+                <h:commandButton class="button" action="/register" value="Register"/>
+            </p>
+            <p>
+                You can also<br/>
+                <h:commandButton class="button" action="/search" value="Enter as Guest"/>
+                and view available offers.
+            </p>
+        </h:form>
+    </h:body>
+</html>
+
